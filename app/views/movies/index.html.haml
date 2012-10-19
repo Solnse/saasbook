@@ -5,12 +5,12 @@
   %thead
     %tr
   - if @current == 'title'
-    %th{:class => 'hilite'}= link_to 'Title', movies_path(:sort => 'title'), :id => 'hilite'
+    %th{:class => 'hilite'}= link_to 'Title', movies_path(:sort => 'title'), :id => 'title_header'
   - else
     %th{:class => @title_header}= link_to 'Title', movies_path(:sort => 'title'), :id => 'title_header'
   %th Rating
   - if @current == 'release_date'
-    %th{:class => 'hilite'}= link_to 'Release Date', movies_path(:sort => 'release_date'), :id => 'hilite'
+    %th{:class => 'hilite'}= link_to 'Release Date', movies_path(:sort => 'release_date'), :id => 'release_date_header'
   - else
     %th{:class => @release_date_header}= link_to 'Release Date', movies_path(:sort => 'release_date'), :id => 'release_date_header'
   %th More Info
