@@ -12,6 +12,8 @@ class MoviesController < ApplicationController
       @movies = Movie.all.sort_by { |l| l.title }
     elsif sort == 'release_date'
       @movies = Movie.all.sort_by { |l| l.release_date }
+    else
+      @movies = Movie.all
     end
   end
 
