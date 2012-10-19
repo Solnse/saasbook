@@ -5,7 +5,6 @@
   %thead
     %tr
     - if @current == 'title'
-    -# watch out fo the extra space in the link_to
       %th{:class => "hilite"}=link_to 'Title', movies_path(:sort => 'title'), :id => "title_header"
     - else
       %th{:class => "title_header"}=link_to 'Title', movies_path(:sort => 'title'), :id => "title_header"
