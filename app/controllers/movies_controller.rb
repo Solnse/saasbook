@@ -10,8 +10,10 @@ class MoviesController < ApplicationController
     sort = params[:sort] || session[:sort]
     if sort == 'title'
       @movies = Movie.all.sort_by { |l| l.title }
+      @current = 'title'
     elsif sort == 'release_date'
       @movies = Movie.all.sort_by { |l| l.release_date }
+      @current = 'release_date'
     else
       @movies = Movie.all
     end
