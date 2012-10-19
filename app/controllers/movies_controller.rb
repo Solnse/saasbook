@@ -7,7 +7,8 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all
+    @movies = Movies.scoped
+    @movies = @movies.order('title') if params['sort'] == 'title'
   end
 
   def new
