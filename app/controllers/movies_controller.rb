@@ -7,16 +7,20 @@ class MoviesController < ApplicationController
   end
 
   def index
+    results = Movie.where(params[:ratings].present? ? {:rating => (params[:ratings].keys)} : {})
     sort = params[:sort] || session[:sort]
     if sort == 'title'
-      @movies = Movie.all.sort_by { |l| l.title }
+      @movies = results.sort_by { |l| l.title }
       @current = 'title'
     elsif sort == 'release_date'
-      @movies = Movie.all.sort_by { |l| l.release_date }
+      @movies = results.sort_by { |l| l.release_date }
       @current = 'release_date'
     else
-      @movies = Movie.all
+      @movies = results
     end
+
+    @all_ratings = ['G','PG','PG-13','R']
+    @checked = params[:ratings].present? ? params[:ratings].keys : @all_ratings
   end
 
   def new
